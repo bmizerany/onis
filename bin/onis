@@ -2,7 +2,7 @@
 $LOAD_PATH.unshift File.dirname(__FILE__) + "/../lib"
 
 require 'optparse'
-require 'oins/base'
+require 'onis/base'
 
 # default options
 pid     = nil
@@ -16,7 +16,7 @@ psax    = `ps -axo pid,#{command}`
 format  = "%-10s %s\n"
 
 ARGV.options do |o|
-  o.banner = "Usage: oins [options] [pid]"
+  o.banner = "Usage: onis [options] [pid]"
   o.separator ""
   o.separator "Run without params for process list"
 
@@ -43,7 +43,7 @@ if pid = ARGV.shift
     sleep(0.5)
   end
 
-  pfp = Oins::Base.path_for_pid(pid)
+  pfp = Onis::Base.path_for_pid(pid)
   abort("report for #{pid} not found") if !File.file?(pfp)
 
   open(pfp) do |f|
@@ -61,7 +61,7 @@ else
     next unless line =~ /^\d+/
       pid = line.slice!(/^\d+ /).strip
     next if pid == Process.pid.to_s
-    pfp = Oins::Base.path_for_pid(pid)
+    pfp = Onis::Base.path_for_pid(pid)
     next if !File.file?(pfp)
     P[format % [pid, line]]
   end

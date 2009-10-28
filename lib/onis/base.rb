@@ -1,14 +1,14 @@
 require 'tempfile'
 require 'fileutils'
 
-module Oins
+module Onis
   module Base
     def self.drop_pid(pid = Process.pid)
       path_for_pid(pid).tap {|pfp| FileUtils.touch(pfp)}
     end
 
     def self.path_for_pid(pid)
-      File.join(Dir.tmpdir, "oins-#{pid}")
+      File.join(Dir.tmpdir, "onis.{pid}")
     end
 
     def self.start!
