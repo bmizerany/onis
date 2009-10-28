@@ -40,6 +40,10 @@ Onis gives you introspection into object counts of live running ruby process.
 
     $ onis -f -c 26584
 
+## Watch!
+    
+    $ onis -w 26584
+
 ## How it works
 
   1. Onis drops a tempfile named after the pid `onis.<pid>`
