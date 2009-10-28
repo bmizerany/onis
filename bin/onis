@@ -12,7 +12,7 @@ color   = false
 
 # setup command
 command = `uname`.chomp == "Darwin" ? "command" : "cmd"
-psax    = `ps -axo pid,#{command}`
+psax    = `ps axo pid,#{command}`
 format  = "%-10s %s\n"
 
 ARGV.options do |o|
