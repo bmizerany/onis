@@ -58,8 +58,8 @@ else
   print format % %w|PID COMMAND|
   puts  "-" * 60 
   psax.each_line do |line|
-    next unless line =~ /^\d+/
-    pid = line.slice!(/^\d+ /).strip
+    next unless line =~ /\d+ /
+    pid = line.strip!.slice!(/\d+ /).strip
     next if pid == Process.pid.to_s
     pfp = Onis::Base.path_for_pid(pid)
     next if !File.file?(pfp)
