@@ -28,6 +28,13 @@ ARGV.options do |o|
   o.parse!
 end
 
+P = lambda {|line|
+  @n ||= 0
+  print "\e[7m" if color && ((@n += 1) % 2).zero?
+  puts line
+  print "\e[m" if color
+}
+
 if pid = ARGV.shift
   if watch
     exec "watch -n0 \"#{$0} -f #{pid}\""
@@ -43,26 +50,20 @@ if pid = ARGV.shift
       format = "%-45s %-10s\n"
       puts format % %w|Class Count|
       puts "-" * 56
-      n = 0
       f.each_line do |line|
-        print "\e[7m" if color && ((n += 1) % 2).zero?
-        print format % line.chomp.split(",")
-        print "\e[m" if color
+        P[format % line.chomp.split(",")]
       end
   end
 else
   print format % %w|PID COMMAND|
   puts  "-" * 60 
-  n = 0
   psax.each_line do |line|
     next unless line =~ /^\d+/
       pid = line.slice!(/^\d+ /).strip
     next if pid == Process.pid.to_s
     pfp = Oins::Base.path_for_pid(pid)
     next if !File.file?(pfp)
-    print "\e[7m" if color && ((n += 1) % 2).zero?
-    print format % [pid, line]
-    print "\e[m" if color
+    P[format % [pid, line]]
   end
 end
 
