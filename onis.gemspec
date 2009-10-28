@@ -3,7 +3,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
 
   s.name = 'onis'
-  s.version = '0.1.1'
+  s.version = '0.1.2'
   s.date = '2009-10-27'
 
   s.description = "Live ObjectSpace introspection"
