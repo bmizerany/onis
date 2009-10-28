@@ -8,7 +8,7 @@ module Onis
     end
 
     def self.path_for_pid(pid)
-      File.join(Dir.tmpdir, "onis.{pid}")
+      File.join(Dir.tmpdir, "onis.#{pid}")
     end
 
     def self.start!
