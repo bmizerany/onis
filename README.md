@@ -1,9 +1,13 @@
-onis (pronounced onis)
+# onis
+(pronounced onis)
 
-Onis gives you introspection into object counts of live running
-process.
+Onis gives you introspection into object counts of live running ruby process.
 
-# Example
+## Install
+
+    $ sudo gem install onis
+
+## Example
 
     $ cd onis/
 
@@ -32,11 +36,11 @@ process.
     Object                                        3
     ...
 
-# Color!
+## Color!
 
     $ onis -f -c 26584
 
-# How it works
+## How it works
 
   1. Onis drops a tempfile named after the pid `onis.<pid>`
   2. Onis then traps SIGUSR1
@@ -44,12 +48,34 @@ process.
      has `require`d Onis, Onis will dump the ObjectSpace and counts
      to that tempfile.
 
-# TODO:  
+## TODO:
   * handle `fork`
 
-(c) 2009 Blake Mizerany
-
-# Thanks
+## Thanks
   - Aman Gupta (tmm1) for inspiration and example
   - Ryan Tomayko for playing that great music at Columbus Cafe
     and telling me to take this one step further
+
+## License
+Copyright (c) 2009 Blake Mizerany
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
