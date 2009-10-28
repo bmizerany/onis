@@ -11,7 +11,7 @@ Onis gives you introspection into object counts of live running ruby process.
 
     $ cd onis/
 
-    $ cat test/stringpwd.rb
+    $ cat test/stringpwnd.rb
     require 'onis'
     puts Process.pid
     a = []
