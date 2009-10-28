@@ -4,7 +4,9 @@ require 'fileutils'
 module Onis
   module Base
     def self.drop_pid(pid = Process.pid)
-      path_for_pid(pid).tap {|pfp| FileUtils.touch(pfp)}
+      pfp = path_for_pid(pid)
+      FileUtils.touch(pfp)
+      pfp
     end
 
     def self.path_for_pid(pid)
