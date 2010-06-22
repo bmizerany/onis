@@ -44,8 +44,16 @@ Onis gives you introspection into object counts of live running ruby process.
     $ onis -f -c 26584
 
 ## Watch!
-    
+
     $ onis -w 26584
+
+## Web!
+
+    # config.ru or Rails metal
+
+    map '/onis' do
+      run Onis::Web
+    end
 
 ## How it works
 
